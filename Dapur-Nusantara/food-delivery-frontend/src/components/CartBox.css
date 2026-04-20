@@ -1,0 +1,321 @@
+.cart-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* HEADER */
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cart-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* WARNING */
+.cart-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 193, 7, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #f39c12;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* INFO SECTION */
+.cart-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.cart-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+/* PLATE DISPLAY */
+.plate-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card2);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.plate-edit-btn {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.plate-edit-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* CHANGE ORDER BTN */
+.btn-change-order {
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: var(--transition);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--border-light);
+}
+.btn-change-order:hover {
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
+
+/* DIVIDER */
+.cart-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+/* CART ITEMS */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* EMPTY CART */
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+  gap: 8px;
+  text-align: center;
+}
+.empty-cart-icon {
+  font-size: 40px;
+  opacity: 0.3;
+}
+.empty-cart p {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.empty-hint {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* CART ITEM */
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-card2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.cart-item:hover {
+  border-color: var(--border-light);
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+.cart-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.cart-item-unit {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 3px;
+}
+
+.cart-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* QTY CONTROLS */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.qty-btn:hover {
+  background: var(--border);
+  color: var(--text);
+}
+.qty-btn-plus:hover {
+  background: rgba(232, 65, 42, 0.15);
+  color: var(--primary);
+}
+.qty-value {
+  min-width: 24px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cart-item-subtotal {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* SUMMARY */
+.cart-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.free-badge {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.total-amount {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* CONFIRM BUTTON */
+.btn-confirm-order {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px var(--primary-glow);
+  margin-top: 4px;
+}
+.btn-confirm-order:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--primary-glow);
+}
+.btn-confirm-order:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn-confirm-order:disabled {
+  background: var(--bg-card2);
+  color: var(--text-dim);
+  box-shadow: none;
+  cursor: not-allowed;
+  border: 1px solid var(--border);
+}

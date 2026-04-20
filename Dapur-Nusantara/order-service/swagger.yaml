@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: Order Service API
+  version: 1.0.0
+
+paths:
+  /orders:
+    get:
+      summary: Get all orders (including user info)
+      responses:
+        "200":
+          description: Successful response
+    post:
+      summary: Create new order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: integer
+                item:
+                  type: string
+                total:
+                  type: number
+      responses:
+        "201":
+          description: Order created
+  /orders/{id}:
+    get:
+      summary: Get order by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Order not found

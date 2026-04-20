@@ -1,0 +1,170 @@
+.app-wrapper {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ===== MAIN CONTAINER ===== */
+.main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ===== LEFT PANEL ===== */
+.left-panel {
+  min-width: 0;
+}
+
+/* ===== MENU HEADER ===== */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title span.title-bar {
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 2px;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+}
+.search-input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 11px 16px 11px 44px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+}
+.search-input::placeholder {
+  color: var(--text-dim);
+}
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* ===== ORDER TYPE INDICATOR ===== */
+.order-type-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+}
+.order-type-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.order-type-indicator .badge {
+  cursor: default;
+}
+
+/* ===== RIGHT PANEL ===== */
+.right-panel {
+  position: sticky;
+  top: 90px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+  .right-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    padding: 24px 16px 60px;
+    gap: 24px;
+  }
+  .menu-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .search-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* ===== ORDER TYPE BANNER (inline) ===== */
+.order-type-selector-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.order-bar-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.order-bar-btn:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+.order-bar-btn.active {
+  border-color: var(--primary);
+  background: rgba(232, 65, 42, 0.08);
+  color: var(--primary);
+  box-shadow: 0 4px 15px var(--primary-glow);
+}
+.order-bar-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}

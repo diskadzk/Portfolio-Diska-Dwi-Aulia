@@ -1,0 +1,111 @@
+.order-type-modal-box {
+  max-width: 500px;
+}
+
+/* HEADER */
+.otm-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.otm-icon {
+  font-size: 42px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.otm-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* TYPE TOGGLE */
+.otm-toggle {
+  display: flex;
+  gap: 0;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.otm-toggle-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  border: none;
+  border-radius: 9px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: var(--text-muted);
+  background: transparent;
+}
+
+.otm-toggle-btn:hover:not(.active):not(.active-takeaway) {
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+}
+
+.otm-toggle-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.otm-toggle-btn.active-takeaway {
+  background: linear-gradient(135deg, var(--accent), #e67830);
+  color: white;
+  box-shadow: 0 4px 14px rgba(255,140,66,0.3);
+}
+
+/* FORM */
+.otm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+/* INFO BOX */
+.otm-info-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(46, 204, 113, 0.07);
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #2ecc71;
+  margin-top: 8px;
+}
+
+.otm-info-takeaway {
+  background: rgba(255, 140, 66, 0.07);
+  border-color: rgba(255, 140, 66, 0.2);
+  color: var(--accent);
+}
+
+/* ACTIONS */
+.otm-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+.disabled-btn:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,478 @@
+{
+    "info": {
+        "_postman_id": "food-delivery-collection-001",
+        "name": "Food Delivery Microservices API",
+        "description": "Complete API documentation for Food Delivery Application with GraphQL Backend and RESTful Microservices",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "GraphQL API",
+            "item": [
+                {
+                    "name": "Get All Menus",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "{\n  getMenus {\n    id\n    name\n    price\n    image\n  }\n}",
+                                "variables": ""
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:4000/graphql",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "4000",
+                            "path": [
+                                "graphql"
+                            ]
+                        },
+                        "description": "Retrieve all available menu items from the menu service"
+                    }
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "{\n  getUsers {\n    id\n    name\n    email\n    address\n  }\n}",
+                                "variables": ""
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:4000/graphql",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "4000",
+                            "path": [
+                                "graphql"
+                            ]
+                        },
+                        "description": "Get all registered users"
+                    }
+                },
+                {
+                    "name": "Create User (Signup)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "mutation CreateUser($name: String!, $email: String!, $password: String!, $address: String) {\n  createUser(name: $name, email: $email, password: $password, address: $address) {\n    id\n    name\n    email\n    address\n  }\n}",
+                                "variables": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"address\": \"Jl. Sudirman No. 1, Jakarta\"\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:4000/graphql",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "4000",
+                            "path": [
+                                "graphql"
+                            ]
+                        },
+                        "description": "Register a new user account"
+                    }
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    message\n    id\n    name\n    email\n    address\n  }\n}",
+                                "variables": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:4000/graphql",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "4000",
+                            "path": [
+                                "graphql"
+                            ]
+                        },
+                        "description": "Login with email and password"
+                    }
+                },
+                {
+                    "name": "Create Order",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "mutation CreateOrder($userId: ID!, $menuId: ID!, $qty: Int!) {\n  createOrder(user_id: $userId, menu_id: $menuId, qty: $qty) {\n    id\n    order_id\n    user_id\n    menu_id\n    qty\n    total\n  }\n}",
+                                "variables": "{\n  \"userId\": \"1\",\n  \"menuId\": \"1\",\n  \"qty\": 2\n}"
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:4000/graphql",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "4000",
+                            "path": [
+                                "graphql"
+                            ]
+                        },
+                        "description": "Create a new order for a menu item"
+                    }
+                },
+                {
+                    "name": "Get All Orders",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "graphql",
+                            "graphql": {
+                                "query": "{\n  getOrders {\n    id\n    order_id\n    user_id\n    order_date\n    total\n    menu_id\n    qty\n  }\n}",
+                                "variables": ""
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:4000/graphql",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "4000",
+                            "path": [
+                                "graphql"
+                            ]
+                        },
+                        "description": "Retrieve all orders from the system"
+                    }
+                }
+            ],
+            "description": "GraphQL API endpoints for unified access to all microservices"
+        },
+        {
+            "name": "User Service",
+            "item": [
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/users",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "users"
+                            ]
+                        },
+                        "description": "REST endpoint to get all users"
+                    }
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/users/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "users",
+                                "1"
+                            ]
+                        },
+                        "description": "Get specific user by ID"
+                    }
+                },
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane@example.com\",\n  \"password\": \"password123\",\n  \"address\": \"Jl. Gatot Subroto No. 5, Bandung\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/users",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "users"
+                            ]
+                        },
+                        "description": "Create a new user account"
+                    }
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"jane@example.com\",\n  \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/login",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "login"
+                            ]
+                        },
+                        "description": "Authenticate user with email and password"
+                    }
+                }
+            ],
+            "description": "User management microservice running on port 3001"
+        },
+        {
+            "name": "Menu Service",
+            "item": [
+                {
+                    "name": "Get All Menus",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3003/menus",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3003",
+                            "path": [
+                                "menus"
+                            ]
+                        },
+                        "description": "Get all available menu items"
+                    }
+                },
+                {
+                    "name": "Get Menu by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3003/menus/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3003",
+                            "path": [
+                                "menus",
+                                "1"
+                            ]
+                        },
+                        "description": "Get specific menu item details"
+                    }
+                },
+                {
+                    "name": "Create Menu",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Sate Ayam\",\n  \"price\": 22000,\n  \"image\": \"sate-ayam.jpg\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3003/menus",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3003",
+                            "path": [
+                                "menus"
+                            ]
+                        },
+                        "description": "Add a new menu item"
+                    }
+                },
+                {
+                    "name": "Update Menu",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Sate Ayam Madura\",\n  \"price\": 25000,\n  \"image\": \"sate-ayam-madura.jpg\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3003/menus/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3003",
+                            "path": [
+                                "menus",
+                                "1"
+                            ]
+                        },
+                        "description": "Update existing menu item"
+                    }
+                },
+                {
+                    "name": "Delete Menu",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3003/menus/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3003",
+                            "path": [
+                                "menus",
+                                "1"
+                            ]
+                        },
+                        "description": "Remove a menu item"
+                    }
+                }
+            ],
+            "description": "Menu management microservice running on port 3003"
+        },
+        {
+            "name": "Order Service",
+            "item": [
+                {
+                    "name": "Get All Orders",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3002/orders",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3002",
+                            "path": [
+                                "orders"
+                            ]
+                        },
+                        "description": "Retrieve all orders with details"
+                    }
+                },
+                {
+                    "name": "Create Order",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"user_id\": 1,\n  \"menu_id\": 1,\n  \"qty\": 3\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3002/orders",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3002",
+                            "path": [
+                                "orders"
+                            ]
+                        },
+                        "description": "Create a new order (automatically calculates total from menu price)"
+                    }
+                }
+            ],
+            "description": "Order management microservice running on port 3002"
+        }
+    ]
+}

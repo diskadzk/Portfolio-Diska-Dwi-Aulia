@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: Restaurant Service API
+  version: 1.0.0
+
+paths:
+  /restaurants:
+    get:
+      summary: Get all restaurants
+      responses:
+        "200":
+          description: OK
+    post:
+      summary: Create new restaurant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                menu:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      price:
+                        type: number
+      responses:
+        "201":
+          description: Created
+
+  /restaurants/{id}:
+    get:
+      summary: Get restaurant by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not found
+
+  /restaurants/{id}/menu:
+    get:
+      summary: Get menu for specific restaurant
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not found
